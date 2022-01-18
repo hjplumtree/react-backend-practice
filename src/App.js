@@ -4,6 +4,7 @@ import { Header } from "./Header";
 import { Nav } from "./Nav";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
+import { Routes, Route } from "react-router-dom";
 
 function App() {
   const dispatch = useDispatch();
@@ -22,6 +23,25 @@ function App() {
       <Header />
       <Nav />
       <Article />
+
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <article>
+              <h1>Welcome</h1>Hello, Web
+            </article>
+          }
+        />
+        <Route
+          path="/read/:id"
+          element={
+            <article>
+              <h1>Read</h1>Hello!
+            </article>
+          }
+        />
+      </Routes>
     </div>
   );
 }
