@@ -22,7 +22,6 @@ function App() {
     <div className="App">
       <Header />
       <Nav />
-      <Article />
 
       <Routes>
         <Route
@@ -48,7 +47,7 @@ function Read() {
       .then((type) => type.json())
       .then((result) => setTopics(result));
   }, [id]);
-  if (topic == undefined) {
+  if (topic === undefined) {
     return <>Loading...</>;
   }
   return (
