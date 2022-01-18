@@ -14,6 +14,10 @@ function reducer(state, action) {
   }
 
   const newState = { ...state };
+  if (action.type === "SET_TOPICS") {
+    newState.topics = action.topics;
+  }
+
   return newState;
 }
 
