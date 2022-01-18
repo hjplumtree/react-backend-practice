@@ -1,8 +1,10 @@
+import { Link } from "react-router-dom";
+
 export function Header() {
   return (
     <header>
       <h1>
-        <a href="/">WEB</a>
+        <Link to="/">WEB</Link>
       </h1>
     </header>
   );
