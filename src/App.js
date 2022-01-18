@@ -1,10 +1,10 @@
 import "./App.css";
-import { Article } from "./Article";
 import { Header } from "./Header";
 import { Nav } from "./Nav";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { Routes, Route, useParams } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
+import { Read } from "./Read";
 
 function App() {
   const dispatch = useDispatch();
@@ -35,26 +35,6 @@ function App() {
         <Route path="/read/:id" element={<Read></Read>} />
       </Routes>
     </div>
-  );
-}
-
-function Read() {
-  const { id } = useParams();
-  const [topic, setTopics] = useState();
-  useEffect(() => {
-    setTopics(undefined);
-    fetch("http://localhost:3333/topics/" + id)
-      .then((type) => type.json())
-      .then((result) => setTopics(result));
-  }, [id]);
-  if (topic === undefined) {
-    return <>Loading...</>;
-  }
-  return (
-    <article>
-      <h1>{topic.title}</h1>
-      {topic.body}
-    </article>
   );
 }
 
